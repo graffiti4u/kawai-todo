@@ -16,7 +16,10 @@ export default class ToDo extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>hello I'm a To Do</Text>
+        <TouchableOpacity>
+          <View style={styles.circle} />
+        </TouchableOpacity>
+        <Text style={styles.text}>hello I'm a To Do</Text>
       </View>
     );
   }
@@ -28,5 +31,19 @@ const styles = StyleSheet.create({
     borderBottomColor: '#bbb',
     borderBottomWidth: StyleSheet.hairlineWidth,
     flexDirection: 'row',
+    alignItems: 'center',
+  },
+  circle: {
+    width: 30,
+    height: 30,
+    borderRadius: 25,
+    borderColor: 'red',
+    borderWidth: 3,
+    marginRight: 20,
+  },
+  text: {
+    fontWeight: '600',
+    fontSize: 20,
+    marginVertical: 20,
   },
 });
