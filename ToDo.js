@@ -12,17 +12,26 @@ const { width, height } = Dimensions.get('window');
 export default class ToDo extends Component {
   state = {
     isEditing: false,
+    isCompleted: false,
   };
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this._toggleComplete}>
           <View style={styles.circle} />
         </TouchableOpacity>
         <Text style={styles.text}>hello I'm a To Do</Text>
       </View>
     );
   }
+
+  _toggleComplete = () => {
+    this.setState(prevState => {
+      return {
+        isCompleted: !prevState.isCompleted,
+      };
+    });
+  };
 }
 
 const styles = StyleSheet.create({
