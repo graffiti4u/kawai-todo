@@ -27,7 +27,14 @@ export default class ToDo extends Component {
             ]}
           />
         </TouchableOpacity>
-        <Text style={styles.text}>hello I'm a To Do</Text>
+        <Text
+          style={[
+            styles.text,
+            isCompleted ? styles.completedText : styles.uncompletedText,
+          ]}
+        >
+          hello I'm a To Do
+        </Text>
       </View>
     );
   }
@@ -66,5 +73,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 20,
     marginVertical: 20,
+  },
+  completedText: {
+    color: '#bbb',
+    textDecorationLine: 'line-through',
+  },
+  uncompletedText: {
+    color: '#353839',
   },
 });
