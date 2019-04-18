@@ -15,10 +15,17 @@ export default class ToDo extends Component {
     isCompleted: false,
   };
   render() {
+    const { isCompleted } = this.state;
+
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this._toggleComplete}>
-          <View style={styles.circle} />
+          <View
+            style={[
+              styles.circle,
+              isCompleted ? styles.completedCircle : styles.uncompletedCircle,
+            ]}
+          />
         </TouchableOpacity>
         <Text style={styles.text}>hello I'm a To Do</Text>
       </View>
@@ -46,9 +53,14 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     borderRadius: 25,
-    borderColor: 'red',
     borderWidth: 3,
     marginRight: 20,
+  },
+  completedCircle: {
+    borderColor: '#bbb',
+  },
+  uncompletedCircle: {
+    borderColor: '#F23657',
   },
   text: {
     fontWeight: '600',
