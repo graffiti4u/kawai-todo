@@ -37,30 +37,28 @@ export default class ToDo extends Component {
             hello I'm a To Do
           </Text>
         </View>
-        <View style={styles.column}>
-          {isEditing ? (
-            <View style={styles.actions}>
-              <TouchableOpacity>
-                <View style={styles.actionContainer}>
-                  <Text style={styles.actionText}>✅</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          ) : (
-            <View style={styles.actions}>
-              <TouchableOpacity>
-                <View style={styles.actionContainer}>
-                  <Text style={styles.actionText}>✏️</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <View style={styles.actionContainer}>
-                  <Text style={styles.actionText}>❌</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          )}
-        </View>
+        {isEditing ? (
+          <View style={styles.actions}>
+            <TouchableOpacity>
+              <View style={styles.actionContainer}>
+                <Text style={styles.actionText}>✅</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <View style={styles.actions}>
+            <TouchableOpacity>
+              <View style={styles.actionContainer}>
+                <Text style={styles.actionText}>✏️</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <View style={styles.actionContainer}>
+                <Text style={styles.actionText}>❌</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     );
   }
@@ -81,6 +79,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
   circle: {
     width: 30,
@@ -106,5 +105,18 @@ const styles = StyleSheet.create({
   },
   uncompletedText: {
     color: '#353839',
+  },
+  column: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: width / 2,
+    justifyContent: 'space-between',
+  },
+  actions: {
+    flexDirection: 'row',
+  },
+  actionContainer: {
+    marginVertical: 10,
+    marginHorizontal: 10,
   },
 });
