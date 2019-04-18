@@ -12,17 +12,36 @@ import {
 const { height, width } = Dimensions.get('window');
 
 export default class App extends React.Component {
+  state = {
+    newToDo: '',
+  };
+
   render() {
+    const { newToDo } = this.state;
+
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <Text style={styles.title}>kawai To Do</Text>
         <View style={styles.card}>
-          <TextInput style={styles.input} placeholder={'New To Do'} />
+          <TextInput
+            style={styles.input}
+            placeholder={'New To Do'}
+            value={newToDo}
+            onChangeText={this._controlNewToDo}
+            placeholderTextColor={'#999'}
+            returnKeyType={'done'}
+          />
         </View>
       </View>
     );
   }
+
+  _controlNewToDo = text => {
+    this.setState({
+      newToDo: text,
+    });
+  };
 }
 
 const styles = StyleSheet.create({
