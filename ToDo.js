@@ -14,8 +14,10 @@ export default class ToDo extends Component {
     isEditing: false,
     isCompleted: false,
   };
+
   render() {
     const { isCompleted, isEditing } = this.state;
+    const { text } = this.props;
 
     return (
       <View style={styles.container}>
@@ -34,7 +36,7 @@ export default class ToDo extends Component {
               isCompleted ? styles.completedText : styles.uncompletedText,
             ]}
           >
-            hello I'm a To Do
+            {text}
           </Text>
         </View>
         {isEditing ? (
