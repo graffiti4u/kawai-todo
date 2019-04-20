@@ -9,6 +9,7 @@
   "dependencies": {
     "eslint-config-prettier": "^4.1.0",
     "expo": "^32.0.0",
+    "prop-types": "^15.7.2",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "uuid": "^3.3.2"
