@@ -10,6 +10,7 @@ import {
   ScrollView,
 } from 'react-native';
 import { AppLoading } from 'expo';
+import uuidv1 from 'uuid/v1';
 
 import ToDo from './ToDo';
 
@@ -70,11 +71,25 @@ export default class App extends React.Component {
   _addToDo = () => {
     const { newToDo } = this.state;
     if (newToDo !== '') {
-      this.setState({
-        newToDo: '',
-      });
       this.setState(prevState => {
-        const newToDoObject = {};
+        const ID = uuidv1();
+        const newToDoObject = {
+          [id]: {
+            id: ID,
+            isCompleted: false,
+            text: newToDo,
+            createdAt: Date.now(),
+          },
+        };
+        const newState = {
+          ...prevState,
+          newToDo: '',
+          toDos: {
+            ...prevState.toDos,
+            ...newToDoObject,
+          },
+        };
+        return { ...newState };
       });
     }
   };
