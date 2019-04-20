@@ -20,6 +20,7 @@ export default class App extends React.Component {
   state = {
     newToDo: '',
     loadedToDos: false,
+    toDos: {},
   };
 
   componentDidMount() {
@@ -27,8 +28,8 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { newToDo, loadedToDos } = this.state;
-
+    const { newToDo, loadedToDos, toDos } = this.state;
+    console.log(toDos);
     if (!loadedToDos) {
       return <AppLoading />;
     }
@@ -74,7 +75,7 @@ export default class App extends React.Component {
       this.setState(prevState => {
         const ID = uuidv1();
         const newToDoObject = {
-          [id]: {
+          [ID]: {
             id: ID,
             isCompleted: false,
             text: newToDo,
