@@ -12,14 +12,14 @@ import PropTypes from 'prop-types';
 const { width, height } = Dimensions.get('window');
 
 export default class ToDo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isEditing: false, toDoValue: props.text };
+  }
+
   static propTypes = {
     text: PropTypes.string.isRequired,
     isCompleted: PropTypes.bool.isRequired,
-  };
-
-  state = {
-    isEditing: false,
-    toDoValue: '',
   };
 
   render() {
@@ -96,16 +96,15 @@ export default class ToDo extends Component {
   };
 
   _startEditing = () => {
-    const { text } = this.props;
     this.setState({
       isEditing: true,
-      toDoValue: text,
     });
   };
 
   _finishEditing = () => {
     this.setState({
       isEditing: false,
+      //TODO:수정되어진 할일을 props에 저장하기.
     });
   };
 
