@@ -60,7 +60,11 @@ export default class App extends React.Component {
     });
   };
 
-  _loadToDos = () => {};
+  _loadToDos = () => {
+    this.setState({
+      loadedToDos: true,
+    });
+  };
 }
 
 const styles = StyleSheet.create({
