@@ -20,11 +20,13 @@ export default class ToDo extends Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
     isCompleted: PropTypes.bool.isRequired,
+    deleteToDo: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
   };
 
   render() {
     const { isCompleted, isEditing, toDoValue } = this.state;
-    const { text } = this.props;
+    const { text, id, deleteToDo } = this.props;
 
     return (
       <View style={styles.container}>
@@ -76,7 +78,7 @@ export default class ToDo extends Component {
                 <Text style={styles.actionText}>✏️</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPressOut={() => deleteToDo(id)}>
               <View style={styles.actionContainer}>
                 <Text style={styles.actionText}>❌</Text>
               </View>
