@@ -73,6 +73,9 @@ export default class App extends React.Component {
       this.setState({
         newToDo: '',
       });
+      this.setState(prevState => {
+        const newToDoObject = {};
+      });
     }
   };
 }
