@@ -24,6 +24,7 @@ export default class ToDo extends Component {
     id: PropTypes.string.isRequired,
     completeToDo: PropTypes.func.isRequired,
     uncompleteToDo: PropTypes.func.isRequired,
+    updateToDo: PropTypes.func.isRequired,
   };
 
   render() {
@@ -107,9 +108,11 @@ export default class ToDo extends Component {
   };
 
   _finishEditing = () => {
+    const { toDoValue } = this.state;
+    const { id, updateToDo } = this.props;
+    updateToDo(id, toDoValue);
     this.setState({
       isEditing: false,
-      //TODO:수정되어진 할일을 props에 저장하기.
     });
   };
 
